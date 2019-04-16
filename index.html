@@ -1,1 +1,60 @@
-Text
+<html>
+    <head>
+        <script src="script.js"></script>
+    </head>
+    <body onLoad="iFrameOn();">
+        <h2>Scribble</h2>
+        <form action="my_parse_file.php" name="myform" id="myform" method="post">
+            <!--<p>Entry Title: <input name="title" id="title" type="text" size="80" maxlength="80" /></p> -->
+            <div id="main" style="padding:2px; width:1000px;">
+                <input type="button" onClick="iUndo()" value="Undo"> 
+                <input type="button" onClick="iRedo()" value="Redo">
+                <input type="button" onClick="iIndent()" value="Indent">
+                <input type="button" onClick="iOutdent()" value="Outdent">
+                <input type="button" onClick="iBold()" value="B" style="font-weight: bold;"> 
+                <input type="button" onClick="iUnderline()" value="U" style="text-decoration: underline;">
+                <input type="button" onClick="iItalic()" value="I" style="font-style: italic;">
+                <input type="button" onClick="iCut()" value="Cut">
+                <input type="button" onClick="iCopy()" value="Copy">
+                <input type="button" onClick="iPaste()" value="Paste" disabled>
+                <!--<input type="button" onClick="iFontSize()" value="Text Size"> -->
+                Text Size
+                <select name="fontSize" id="fSize" onClick="iFontSize()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                  </select>
+                <!--<input type="button" onClick="iForeColor()" value="Text Color"> -->
+                Text Color
+                <select name="ColorDrop" id="Color" onClick="iForeColor()">
+                    <option value ="" disabled selected>Color</option>
+                    <option value="red" style="background-color:red"></option>
+                    <option value="blue" style="background-color:blue"></option>
+                    <option value="green" style="background-color:green"></option>
+                    <option value="pink" style="background-color:pink"></option>
+                    <option value="black" style="background-color:black"></option>
+                </select>
+                <input type="button" onClick="iLeft()" value="Left">
+                <input type="button" onClick="iCenter()" value="Center">
+                <input type="button" onClick="iRight()" value="Right">
+                <input type="button" onClick="iHorizontalRule()" value="HR">
+                <input type="button" onClick="iUnorderedList()" value="UL">
+                <input type="button" onClick="iOrderedList()" value="OL">
+                <input type="button" onClick="iLink()" value="Link">
+                <input type="button" onClick="iUnLink()" value="UnLink">
+                <input type="button" onClick="iImage()" value="Image" disabled>
+            </div>
+            <!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it 
+            <textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea> -->
+            <textarea style="display:none;" name="myTextArea" id="myTextArea" style="width:800px; height:800px;"></textarea>
+            <iframe name="Scribble_Box" id="Scribble_Box" style="border:#000000 1px solid; width:800px; height:800px;"></iframe>
+            <!-- End replacing your normal textarea -->
+            </p>
+            <!--<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/> -->
+        </form>
+    </body>
+</html>
