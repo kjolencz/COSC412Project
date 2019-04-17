@@ -1,60 +1,81 @@
 <html>
     <head>
+        <title>Text</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="script.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body onLoad="iFrameOn();">
-        <h2>Scribble</h2>
-        <form action="my_parse_file.php" name="myform" id="myform" method="post">
             <!--<p>Entry Title: <input name="title" id="title" type="text" size="80" maxlength="80" /></p> -->
-            <div id="main" style="padding:2px; width:1000px;">
-                <input type="button" onClick="iUndo()" value="Undo"> 
-                <input type="button" onClick="iRedo()" value="Redo">
-                <input type="button" onClick="iIndent()" value="Indent">
-                <input type="button" onClick="iOutdent()" value="Outdent">
-                <input type="button" onClick="iBold()" value="B" style="font-weight: bold;"> 
-                <input type="button" onClick="iUnderline()" value="U" style="text-decoration: underline;">
-                <input type="button" onClick="iItalic()" value="I" style="font-style: italic;">
-                <input type="button" onClick="iCut()" value="Cut">
-                <input type="button" onClick="iCopy()" value="Copy">
-                <input type="button" onClick="iPaste()" value="Paste" disabled>
-                <!--<input type="button" onClick="iFontSize()" value="Text Size"> -->
-                Text Size
-                <select name="fontSize" id="fSize" onClick="iFontSize()">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                  </select>
-                <!--<input type="button" onClick="iForeColor()" value="Text Color"> -->
-                Text Color
-                <select name="ColorDrop" id="Color" onClick="iForeColor()">
-                    <option value ="" disabled selected>Color</option>
-                    <option value="red" style="background-color:red"></option>
-                    <option value="blue" style="background-color:blue"></option>
-                    <option value="green" style="background-color:green"></option>
-                    <option value="pink" style="background-color:pink"></option>
-                    <option value="black" style="background-color:black"></option>
-                </select>
-                <input type="button" onClick="iLeft()" value="Left">
-                <input type="button" onClick="iCenter()" value="Center">
-                <input type="button" onClick="iRight()" value="Right">
-                <input type="button" onClick="iHorizontalRule()" value="HR">
-                <input type="button" onClick="iUnorderedList()" value="UL">
-                <input type="button" onClick="iOrderedList()" value="OL">
-                <input type="button" onClick="iLink()" value="Link">
-                <input type="button" onClick="iUnLink()" value="UnLink">
-                <input type="button" onClick="iImage()" value="Image" disabled>
+            <div id="main">
+                <div id="undoButtons"> 
+                    <div style="height:55px;">
+                        <input class="buttons" type="image" onClick="iUndo()" value="undo" src="images/undo-button.png" style="height:35px; float:left; width:33%;">
+                        <div style="height:35px; float:left; width:33%;"></div>
+                        <input class="buttons" type="image" onClick="iRedo()" value="Redo" src="images/redo-button.png" style="height:35px; float:left; width:33%;">
+                    </div> 
+                    <div>
+                        <input class="buttons" type="image" onClick="iCut()" value="Cut" src="images/Editing-Cut.png" style="height:30px; float:left; width:32%; padding:2px;">
+                        <input class="buttons" type="image" onClick="iCopy()" value="Copy" src="images/paste.png" style="height:30px; float:left; width:32%; padding:2px;">
+                        <input class="buttons" type="image" onClick="iPaste()" value="Paste" src="images/copy.jpg" style="height:30px; float:left; width:32%; padding:2px;" disabled>
+                    </div>
+                </div>
+                <div id="indentButtons">
+                    <input class="buttons" type="button" onClick="iIndent()" value="Indent">
+                    <input class="buttons" type="button" onClick="iOutdent()" value="Outdent">
+                </div>
+                <div id="boldButtons">
+                    <input type="button" onClick="iBold()" value="B" style="font-weight: bold;"> 
+                    <input type="button" onClick="iUnderline()" value="U" style="text-decoration: underline;">
+                    <input type="button" onClick="iItalic()" value="I" style="font-style: italic;">
+                </div>
+                <div id="scribbleTitle">
+                    <h2>Scribble</h2>
+                </div>
+                <div >
+                    Text Size
+                    <select name="fontSize" id="fSize" onClick="iFontSize()">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        </select>
+                    <!--<input type="button" onClick="iForeColor()" value="Text Color"> -->
+                    Text Color
+                    <select name="ColorDrop" id="Color" onClick="iForeColor()">
+                        <option value ="" disabled selected>Color</option>
+                        <option value="red" style="background-color:red"></option>
+                        <option value="blue" style="background-color:blue"></option>
+                        <option value="green" style="background-color:green"></option>
+                        <option value="pink" style="background-color:pink"></option>
+                        <option value="black" style="background-color:black"></option>
+                    </select>
+                    <input type="button" onClick="iLeft()" value="Left">
+                    <input type="button" onClick="iCenter()" value="Center">
+                    <input type="button" onClick="iRight()" value="Right">
+                    <input type="button" onClick="iHorizontalRule()" value="HR">
+                    <input type="button" onClick="iUnorderedList()" value="UL">
+                    <input type="button" onClick="iOrderedList()" value="OL">
+                    <input type="button" onClick="iLink()" value="Link">
+                    <input type="button" onClick="iUnLink()" value="UnLink">
+                    <input type="button" onClick="iImage()" value="Image" disabled>
+                </div>
+               
             </div>
-            <!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it 
-            <textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea> -->
-            <textarea style="display:none;" name="myTextArea" id="myTextArea" style="width:800px; height:800px;"></textarea>
-            <iframe name="Scribble_Box" id="Scribble_Box" style="border:#000000 1px solid; width:800px; height:800px;"></iframe>
-            <!-- End replacing your normal textarea -->
+            <div class="row justify-content-center" id="textBox">
+                <!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it 
+                <textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea> -->
+                <textarea style="display:none;" name="myTextArea" id="myTextArea" style="width:800px; height:800px;"></textarea>
+                <iframe  name="Scribble_Box" id="Scribble_Box" style="border:#000000 1px solid; width:800px; height:800px;"></iframe>
+                <!-- End replacing your normal textarea -->
+            </div>
             </p>
             <!--<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/> -->
-        </form>
     </body>
 </html>
