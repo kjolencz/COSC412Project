@@ -1,0 +1,38 @@
+#main{
+    border: 1px solid black;
+    width: 99%;
+    height: 100px;
+
+}
+#textBox{
+    margin:auto;
+    width: 100%
+}
+#undoButtons{
+    height:100px;
+    width:9%;
+    float:left;
+    border-right: 2px solid black;
+}
+#indentButtons{
+    height:100px;
+    width:10%;
+    float:left;
+}
+#boldButtons{
+    height:100px;
+    width:10%;
+    border: 1px solid green;
+    float:left;
+}
+.buttons{
+    text-decoration: none;
+    cursor: pointer;
+    background-color:white;
+    border: none;
+    padding:2px;
+
+}
+#scribbleTitle{
+    text-align: center;
+}
