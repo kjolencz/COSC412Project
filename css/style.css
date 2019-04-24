@@ -1,38 +1,61 @@
+.body{
+    color:#000000;
+    background-color:#c2c0c6;
+}
 #main{
-    border: 1px solid black;
-    width: 99%;
+    border-bottom: 1px solid black;
+    width: 101%;
     height: 100px;
+    position: fixed;
+    background-color:#eceaef;
 
+}
+#color{
+    width:100%;
+}
+#filler{
+    width: 100%;
+    height: 120px;
 }
 #textBox{
     margin:auto;
-    width: 100%
+    border:#000000 1px solid;
 }
 #undoButtons{
     height:100px;
-    width:9%;
-    float:left;
     border-right: 2px solid black;
 }
 #indentButtons{
     height:100px;
-    width:10%;
-    float:left;
+
 }
 #boldButtons{
     height:100px;
-    width:10%;
-    border: 1px solid green;
-    float:left;
+    border-right: 2px solid black;
 }
 .buttons{
     text-decoration: none;
     cursor: pointer;
-    background-color:white;
     border: none;
     padding:2px;
-
 }
 #scribbleTitle{
     text-align: center;
+}
+#scribbleText{
+    height:100px;
+}
+#textbox{
+    background-color:white;
+    width:800px;
+}
+.buttonsFont{
+    background-color: Transparent;
+    border:none;
+    cursor: pointer;
+    font-size: 1.2em;
+    width: 20px;
+    text-align: left;
+    padding: 1px;
+
 }

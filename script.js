@@ -5,6 +5,10 @@ function iFrameOn(){
 function iBold(){
 	Scribble_Box.document.execCommand('bold',false,null); 
 }
+function iFont() {
+	var fontName = document.getElementById("fontF").value;
+    document.execCommand('fontName', false, fontName);
+}
 function iUnderline(){
 	Scribble_Box.document.execCommand('underline',false,null);
 }
