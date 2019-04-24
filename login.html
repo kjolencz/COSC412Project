@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+</head>
+
+<body onload="signUpEmail();">
+
+  <!-- NAVBAR 
+  <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li class="logged-in">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+              </li> 
+              <li class="logged-in">
+                <a href="#" class="grey-text" id="logout">Logout</a>
+              </li>
+              <li class="logged-out">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+              </li>
+              <li class="logged-out">
+                <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+              </li>
+            </span>
+          </ul>
+        </div>
+      </nav> -->
+
+    <div>
+        <button type="button" id="logout">Logout</button>
+    </div>
+
+    <div>
+        <form id="signup-form">
+            Email
+            <input type="email" id="signup-email" required />
+            Password
+            <input type="password" id="signup-password" required />
+            <button>Sign up</button>
+        </form>
+    </div>
+
+    <div>
+        <form id="login-form">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+            <button>Login</button>
+        </form>
+    </div>
+
+
+
+      <!-- SIGN UP MODAL 
+  <div id="modal-signup" class="modal">
+        <div class="modal-content">
+          <h4>Sign up</h4><br />
+          <form id="signup-form">
+            <div class="input-field">
+              <input type="email" id="signup-email" required />
+              <label for="signup-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="signup-password" required />
+              <label for="signup-password">Choose password</label>
+            </div>
+          </form>
+        </div>
+      </div>-->
+
+      <!-- LOGIN MODAL 
+      <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <h4>Login</h4><br />
+          <form id="login-form">
+            <div class="input-field">
+              <input type="email" id="login-email" required />
+              <label for="login-email">Email address</label>
+            </div>
+            <div class="input-field">
+              <input type="password" id="login-password" required />
+              <label for="login-password">Your password</label>
+            </div>
+            <button class="btn yellow darken-2 z-depth-0">Login</button>
+          </form>
+        </div>
+      </div> -->
+
+
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyAsUAzSvU8-QDIfWeKC8HYR11fmBW4Mc1Y",
+          authDomain: "scribelslogin.firebaseapp.com",
+          databaseURL: "https://scribelslogin.firebaseio.com",
+          projectId: "scribelslogin",
+        };
+        firebase.initializeApp(config);
+
+        //authentication method
+        const auth = firebase.auth();
+
+        //database method
+        const db = firebase.firestore();
+
+      </script>
+
+      
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="auth.js"></script>
+  <script src="index.js"></script>
+  <script src="functions.js"></script>
+
+</body>
+
+</head>
+
+
+</html>
