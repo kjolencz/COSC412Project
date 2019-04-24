@@ -6,11 +6,19 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="navbarTitle"><h1>Scribel</h1></div>
+	<div class="pageBanner">
+		<a href="home.html">
+			<button class="btn" style="float:left;"><img src="exit2.png" width="50" height="50"></img></button>
+		</a>
+		<span><h1>Scribel</h1></span>
+		<a href="accountOptions.html">
+			<button class="btn" style="float:right;"><img src="cog.png" width="50" height="50"></img></button>
+		</a>
+	</div>
 	<div class="topnav" id="myTopnav">
-		<a href="home.html">Home</a>
+		<a class="active" href="home.html">Home</a>
 		<a href="#classSearch.html">Class Search</a>
-		<a class="active" href="about.html">About</a>
+		<a href="about.html">About</a>
 		<a href="#accountOptions.html">Account Options</a>
 		<a href="javascript:void(0);" class="icon" onclick="adaptMenu()">
 			<img src="hamburger.png">

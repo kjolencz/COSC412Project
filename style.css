@@ -3,14 +3,31 @@ type="text/css"
 html {
 	background-color: #008060;
 }
-
 body {
 	background-color: #181818;
+	margin: 0;
+    padding: 0;
+}
+img {
+	max-width: 100%;
+	height: auto;
 }
 
-.navbarTitle {
+.pageBanner {
+	background-color: #181818;
+	overflow:auto;
+	margin:auto;
+}
+.pageBanner h1{
 	color: #008060;
 	text-align: center;
+	display: inline-block;
+}
+.pageBanner button{
+	background-color: #181818;
+	display:inline;
+	background-color:transparent;
+	border: none;
 }
 
 .topnav {
