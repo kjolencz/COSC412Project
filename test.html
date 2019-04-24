@@ -1,11 +1,31 @@
 <html>
     <head>
         <title>Text</title>
-        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <div id="main">
                 Hello World
         </div>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+            apiKey: "AIzaSyAsUAzSvU8-QDIfWeKC8HYR11fmBW4Mc1Y",
+            authDomain: "scribelslogin.firebaseapp.com",
+            databaseURL: "https://scribelslogin.firebaseio.com",
+            projectId: "scribelslogin",
+            };
+            firebase.initializeApp(config);
+
+            //authentication method
+            const auth = firebase.auth();
+
+            //database method
+            const db = firebase.firestore();
+
+        </script>
+        <script src="scripts/checkLogin.js"></script>
     </body>
 </html>
