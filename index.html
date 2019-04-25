@@ -38,19 +38,19 @@
       <div class="container-fluid" style="width: 100%;">
         <div class="navbar-brand" >Scribel</div>
           <div class= "row" style="width:60%;">
-            <div class="col-5">
-                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
-            </div>
-            <div class="col-5">
-                <input type="password" class="form-control" id="login-password" placeholder="Password" required>
-            </div>
-            <div class="col">
-              <buttton class="btn btn-primary">Login in</button>
-            </div>
+              <div class="col-5">
+                  <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required />
+              </div>
+              <div class="col-5">
+                  <input type="password" class="form-control" id="login-password" placeholder="Password" required />
+              </div>
+              <div class="col">
+                  <button type="submit" class="btn btn-primary">Login</button>
+              </div>
         </div>
       </div>
     </nav>
-    </form>
+  </form>
     <!-- Masthead -->
     <header class="masthead text-white text-center">
       <div class="overlay"></div>
@@ -138,11 +138,13 @@
       <script>
         // Initialize Firebase
         var config = {
-          apiKey: "AIzaSyAsUAzSvU8-QDIfWeKC8HYR11fmBW4Mc1Y",
-          authDomain: "scribelslogin.firebaseapp.com",
-          databaseURL: "https://scribelslogin.firebaseio.com",
-          projectId: "scribelslogin",
-        };
+            apiKey: "AIzaSyDRShMLXuW2Nmfkk3i3zippbwE08bfUmJI",
+            authDomain: "legend-firbase-tut.firebaseapp.com",
+            databaseURL: "https://legend-firbase-tut.firebaseio.com",
+            projectId: "legend-firbase-tut",
+            storageBucket: "legend-firbase-tut.appspot.com",
+            messagingSenderId: "852797595665"
+          };
         firebase.initializeApp(config);
 
         //authentication method

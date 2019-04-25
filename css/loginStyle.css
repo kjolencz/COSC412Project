@@ -2,17 +2,18 @@
     background-color: #bad3fc;
 }
 
-#main{
+#signUP{
     margin:auto;
+    float:right;
+    margin-right:5%;
     height:520px;
-    border: 2px solid black;
     margin-top: 50px;
-    width: 50%;
-    border-radius: 25px;
+    width: 40%;
     background-color: white;
+    border-radius: 25px;
 }
 #scribelName{
-    font-size: 6em;
+    font-size: 1em;
     text-align: center;
     width: 100%;
     font-family: "Curlz MT"; 
@@ -21,3 +22,15 @@
     text-align: left;
     font-size: 1.5em;
 }
+#logIn{
+    margin:auto;
+    float:left;
+    height:520px;
+    margin-top: 50px;
+    width: 40%;
+    background-color: white;
+    margin-left:5%;
+    border-radius: 25px;
+}
+
+
