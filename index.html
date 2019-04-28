@@ -34,32 +34,44 @@
   <body>
     <!-- Navigation -->
     <form id="login-form">
-    <nav class="navbar navbar-light bg-light static-top">
-      <div class="container-fluid" style="width: 100%;">
-        <div class="navbar-brand" >Scribel</div>
-          <div class= "row" style="width:60%;">
-              <div class="col-5">
-                  <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required />
-              </div>
-              <div class="col-5">
-                  <input type="password" class="form-control" id="login-password" placeholder="Password" required />
-              </div>
-              <div class="col">
-                  <button type="submit" class="btn btn-primary">Login</button>
-              </div>
+      <nav class="navbar navbar-light bg-light static-top">
+        <div class="container-fluid" style="width: 100%;">
+          <div class="navbar-brand">Scribel</div>
+          <div class="row" style="width:60%;">
+            <div class="col-5">
+              <input
+                type="email"
+                class="form-control"
+                id="login-email"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                required
+              />
+            </div>
+            <div class="col-5">
+              <input
+                type="password"
+                class="form-control"
+                id="login-password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
-  </form>
+      </nav>
+    </form>
     <!-- Masthead -->
-    <header class="masthead text-white text-center">
+    <header class="masthead text-white text-center" color="green">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <h1 class="mb-5">
-              Build a landing page for your business or project and generate
-              more leads!
+              Create and Share Notes With Anyone Anywhere!
             </h1>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
@@ -69,10 +81,15 @@
                   <input
                     type="email"
                     class="form-control form-control-lg"
-                    placeholder="Enter your email..." id="emailValue"/>
+                    placeholder="Enter your email..."
+                    id="emailValue"
+                  />
                 </div>
                 <div class="col-12 col-md-3">
-                  <button type="submit" class="btn btn-block btn-lg btn-primary">
+                  <button
+                    type="submit"
+                    class="btn btn-block btn-lg btn-primary"
+                  >
                     Sign up!
                   </button>
                 </div>
@@ -133,30 +150,29 @@
     </footer>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDRShMLXuW2Nmfkk3i3zippbwE08bfUmJI",
-            authDomain: "legend-firbase-tut.firebaseapp.com",
-            databaseURL: "https://legend-firbase-tut.firebaseio.com",
-            projectId: "legend-firbase-tut",
-            storageBucket: "legend-firbase-tut.appspot.com",
-            messagingSenderId: "852797595665"
-          };
-        firebase.initializeApp(config);
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDRShMLXuW2Nmfkk3i3zippbwE08bfUmJI",
+        authDomain: "legend-firbase-tut.firebaseapp.com",
+        databaseURL: "https://legend-firbase-tut.firebaseio.com",
+        projectId: "legend-firbase-tut",
+        storageBucket: "legend-firbase-tut.appspot.com",
+        messagingSenderId: "852797595665"
+      };
+      firebase.initializeApp(config);
 
-        //authentication method
-        const auth = firebase.auth();
+      //authentication method
+      const auth = firebase.auth();
 
-        //database method
-        const db = firebase.firestore();
+      //database method
+      const db = firebase.firestore();
+    </script>
 
-      </script>
-  
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="scripts/functions.js"></script>
