@@ -7,7 +7,7 @@ function iBold(){
 }
 function iFont() {
 	var fontName = document.getElementById("fontF").value;
-    document.execCommand('fontName', false, fontName);
+    Scribble_Box.document.execCommand('fontName', false, fontName);
 }
 function iUnderline(){
 	Scribble_Box.document.execCommand('underline',false,null);
@@ -89,3 +89,14 @@ function changeImage(){
 	theForm.elements["myTextArea"].value = window.frames['Scribble_Box'].document.body.innerHTML;
 	theForm.submit();
 }*/
+
+function downloadURI() {
+	var myIFrame = document.getElementById("Scribble_Box");
+	var content = myIFrame.contentWindow.document.body.innerHTML;
+	console.log(content);
+    var link = document.createElement("a");
+    link.download = "helloWorld.doc"
+    link.href = "data:," + content;
+	link.click();
+	//downloadURI("data:," + content, "helloWorld.doc");
+}
