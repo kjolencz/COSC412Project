@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Text</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/textEditor.css" />
         <script src="scripts/script.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -18,21 +18,21 @@
                         </div>
                         <div class="row">
                             <div class="col-6">
-                                <input class="buttons" type="image" onClick="iUndo()" value="undo" src="images/bg-showcase-3.jpg" style="height:40px">
+                                <input class="buttons" type="image" onClick="iUndo()" value="undo" src="images/undo-button.png" style="height:40px" title="Undo">
                             </div>
                             <div class="col-6">
-                                <input class="buttons" type="image" onClick="iRedo()" value="Redo" src="images/redo-button.png" style="height:40px">
+                                <input class="buttons" type="image" onClick="iRedo()" value="Redo" src="images/redo-button.png" style="height:40px" title="Redo">
                             </div>
                         </div> 
                         <div class="row">
                             <div class="col-sm">
-                                <input class="buttons" type="image" onClick="iCut()" value="Cut" src="images/Editing-Cut.png" style="height:30px">
+                                <input class="buttons" type="image" onClick="iCut()" value="Cut" src="images/Editing-Cut.png" style="height:30px" title="Cut">
                             </div>
                             <div class="col-sm">
-                                <input class="buttons" type="image" onClick="iCopy()" value="Copy" src="images/paste.png" style="height:30px">
+                                <input class="buttons" type="image" onClick="iCopy()" value="Copy" src="images/paste.png" style="height:30px" title="Copy">
                             </div>
                             <div class="col-sm">
-                                <input class="buttons" type="image" onClick="iPaste()" value="Paste" src="images/copy.jpg" style="height:30px" disabled>
+                                <input class="buttons" type="image" onClick="iPaste()" value="Paste" src="images/copy.jpg" style="height:30px" title="Paste" disabled >
                             </div>
                         </div>
                     </div>
@@ -68,13 +68,13 @@
                         </div>
                         <div class="row"> 
                             <div class="col-1"> 
-                                <input type="button" class="buttonsFont" onClick="iBold()" value="B" style="font-weight: bold;"> 
+                                <input type="button" class="buttonsFont" onClick="iBold()" value="B" style="font-weight: bold;" title="Bold"> 
                             </div>
                             <div class="col-1"> 
-                                <input type="button" class="buttonsFont" onClick="iItalic()" value="I" style="font-style: italic;">       
+                                <input type="button" class="buttonsFont" onClick="iItalic()" value="I" style="font-style: italic;" title="Italics">       
                             </div>
                             <div class="col-1"> 
-                                <input type="button" class="buttonsFont" onClick="iUnderline()" value="U" style="text-decoration: underline;">
+                                <input type="button" class="buttonsFont" onClick="iUnderline()" value="U" style="text-decoration: underline;" title="Underline">
                             </div>
                             <div class="col-6" style="padding-top:5px; padding-right:5px;">
                                 <select name="ColorDrop" id="Color" onClick="iForeColor()">
@@ -85,59 +85,106 @@
                                     <option value="pink" style="background-color:pink"></option>
                                     <option value="black" style="background-color:black"></option>
                                 </select>
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-8">
-                        <!--<div class="row justify-content-center">
-                            <div id="scribbleTitle">
-                                <h2>Scribble</h2>
-                            </div>
-                        </div> -->
-                        <div class="row" id="scribbleTitle">
-                            <div class="col">Paragraph</div>
-                        </div>
                         <div class="row">
-                            <div class="col">
-                                <input class="buttons" type="button" onClick="iIndent()" value="Indent">
-                            </div>
-                            <!--<input type="button" onClick="iForeColor()" value="Text Color"> -->
-                            <div class="col">
-                                <input class="buttons" type="button" onClick="iOutdent()" value="Outdent">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iLeft()" value="Left"> 
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iCenter()" value="Center">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iRight()" value="Right">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iHorizontalRule()" value="HR">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iUnorderedList()" value="UL">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iOrderedList()" value="OL">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iLink()" value="Link">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iUnLink()" value="UnLink">
-                            </div>
-                            <div class="col">
-                                <input type="button" onClick="iImage()" value="Image" disabled>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col" id="scribbleTitle">Paragraph</div>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-3" style="float:left">
+                            <div class="row">
+                                <div class="col" id="indentButtons">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input class="buttons" type="image" onClick="iOutdent()"  src="images/outdent.png"  value="Outdent" style="height:40px" title="Outdent">
+                                        </div>
+                                        <div class="col">
+                                            <input class="buttons" type="image" onClick="iIndent()" src="images/indent.png"  value="Indent" style="height:40px" title="Indent">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="image" onClick="iLeft()" src="images/left.png"  value="Left" style="height:20px" title="Align Left"> 
+                                        </div>
+                                        <div class="col">
+                                            <input type="image" onClick="iCenter()" src="images/center.png"  value="Center" style="height:20px" title="Align Center">
+                                        </div>
+                                        <div class="col">
+                                            <input type="image" onClick="iRight()" src="images/right.png" value="Right" style="height:20px" title="Align Right">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="col-4" style="float:left" id="indentButtons">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="image" onClick="iUnorderedList()" value="UL" src="images/ul.png" style="height:25px; padding-top:5px;" title="Unordered List">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="image" onClick="iOrderedList()" value="OL" src="images/ol.png" style="height:30px;" title="Ordered List">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="image" onClick="iHorizontalRule()" value="HR" src="images/hr.png" style="height:30px;" title="Horizontal Rule">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="image" onClick="iUnLink()" value="UnLink" src="images/unlink.png" style="height:30px; padding-top:5px;" title="Unlink">
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="image" onClick="iLink()" value="Link" src="images/link.png" style="height:32px; padding-top:5px;" title="Link">
+                                        </div>
+                                        <div class="col-8" style="padding-top:5px;">
+                                            <input type="text" name="link" id="linkBox" style="width:95%;padding-left:7px;" placeholder="www.example.com">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="col-5" style="float:left">
+                            <div class="col-8" style="float:left;">
+                                <div class="row" style="height:40px;">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col" style="text-align:center;font-size:1.3em;">
+                                                <input type="button" class="buttons" onClick="iImage()" value="Add Image" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="image" value="Image" onclick="changeImage()" src="images/imageButton.png" style="height:25px; width:100%;" title="Display Image">
+                                    </div>
+                                    <div class="col-8"style="padding-left:.5px; padding-right:.5px;">
+                                        <input type="text" name="link" id="imageBox" style="width:100%;height:25px;padding-right:-10px;" placeholder="www.image.com">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4" style="float:left;">
+                                <div class="row">
+                                    <div class="col">
+                                        <img src="images/flower.jpeg" alt="" height="70px" width="90px" id="imagePlace"  style="border: 2px solid black" onerror="javascript:this.src='images/flower.jpeg'">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<input type="button" onClick="iForeColor()" value="Text Color"> -->
                     </div>
                 </div>
 
             </div>
-            <div id="filler"></div>
+            <div id="filler">
+                <img src="" id="fillerImage" height="40px" width="40px" />
+            </div>
             <p></p>
             
         <div class="row justify-content-center" id="textBox">

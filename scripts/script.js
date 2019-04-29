@@ -57,23 +57,32 @@ function iHorizontalRule(){
 	Scribble_Box.document.execCommand('inserthorizontalrule',false,null);
 }
 function iUnorderedList(){
-	Scribble_Box.document.execCommand("InsertOrderedList", false,"newOL");
+	Scribble_Box.document.execCommand("InsertUnorderedList", false,"newOL");
 }
 function iOrderedList(){
-	Scribble_Box.document.execCommand("InsertUnorderedList", false,"newUL");
+	Scribble_Box.document.execCommand("InsertOrderedList", false,"newUL");
 }
 function iLink(){
-	var linkURL = prompt("Enter the URL for this link:", "http://"); 
-	Scribble_Box.document.execCommand("CreateLink", false, linkURL);
+	var linkURL = document.getElementById("linkBox").value; 
+	Scribble_Box.document.execCommand("CreateLink", false, ("http://" + linkURL));
+	document.getElementById('linkBox').value = "";
 }
 function iUnLink(){
 	Scribble_Box.document.execCommand("Unlink", false, null);
 }
 function iImage(){
-	var imgSrc = prompt('Enter image location', '');
-    if(imgSrc != null){
-        Scribble_Box.document.execCommand('insertimage', false, imgSrc); 
-    }
+	var image = document.getElementById("imagePlace").src;
+	document.getElementById("fillerImage").src = image;
+	//var imgSrc = document.createElement(image);
+	//var imgSrc = image.style.height = '40px';
+	Scribble_Box.document.execCommand('insertimage', false, image); 
+}
+function changeImage(){
+	var image = document.getElementById('imageBox').value;
+	if(image != ''){
+		document.getElementById('imagePlace').src= image;
+		document.getElementById('imagePlace').value = "";
+	}
 }
 /*function submit_form(){
 	var theForm = document.getElementById("myform");
