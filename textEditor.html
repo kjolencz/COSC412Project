@@ -1,8 +1,10 @@
+
 <html>
     <head>
         <title>Text</title>
         <link rel="stylesheet" type="text/css" href="css/textEditor.css" />
-        <script src="scripts/script.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -13,10 +15,13 @@
         <div id="position">
             <div style="width:100%; background-color:#eceaef; border-bottom: 1px solid black">
                 <div class='row' id="saveBar">
-                    <div class="col"><a href="#">Home</a></div>
-                    <div class="col"><input type="button" onclick="downloadURI()" id="saveButton" style="color:white;  background-color: Transparent;border:none;
+                    <div class="col"><a href="#" style="text-decoration:none; color:white;">Home</a></div>
+                    <div class="col"><input type="button" id="saveButton" style="color:white;  background-color: Transparent;border:none;
                         cursor: pointer;" value="Save"></div>
-                    <div class="col">Upload</div>
+                    <div class="col"><input type="button" id="uploadButton" style="color:white;  background-color: Transparent;border:none;
+                        cursor: pointer;" value="Upload"></div>
+                    <div class="col"> <input type="button" onclick="downloadURI()" id="saveButton" style="color:white;  background-color: Transparent;border:none;
+                        cursor: pointer;" value="Download"></div>
                 </div>
             </div>
             <div id="main" class="container-fluid">
@@ -204,7 +209,12 @@
             <iframe  name="Scribble_Box" id="Scribble_Box" style="width:800px; height:800px; border: none;"></iframe>
             <!-- End replacing your normal textarea -->
         </div>
-        </p>
+        <p></p>
+        <div>
+            <ul style="list-style: none; line-height: 50px;" id="text-list"></ul>        
+        </div>
+        <script src="scripts/config.js"></script>
+        <script src="scripts/script.js"></script>
             <!--<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/> -->
     </body>
 </html>

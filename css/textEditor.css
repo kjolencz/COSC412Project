@@ -64,7 +64,11 @@
     background-color:black;
     color:white;
     border-radius: 0px 20px 0px 0px;
-    padding-left: 50px;
+    padding-left: 20px;
+}
+#saveBar:link{
+    text-decoration: none;
+    background-color:white;
 }
 #position{
     position:fixed;

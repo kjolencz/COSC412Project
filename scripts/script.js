@@ -20,7 +20,7 @@ function iFontSize(){
 	Scribble_Box.document.execCommand('FontSize',false,size);
 }
 function iForeColor(){
-	var color = document.getElementById("Color").value;//var color = prompt('Define a basic color or apply a hexadecimal color code for advanced colors:', '');
+	var color = document.getElementById("Color").value;
 	Scribble_Box.document.execCommand('ForeColor',false,color);
 }
 function iUndo(){
@@ -73,8 +73,6 @@ function iUnLink(){
 function iImage(){
 	var image = document.getElementById("imagePlace").src;
 	document.getElementById("fillerImage").src = image;
-	//var imgSrc = document.createElement(image);
-	//var imgSrc = image.style.height = '40px';
 	Scribble_Box.document.execCommand('insertimage', false, image); 
 }
 function changeImage(){
@@ -91,12 +89,64 @@ function changeImage(){
 }*/
 
 function downloadURI() {
+	var file = prompt("Please enter file name", '');
 	var myIFrame = document.getElementById("Scribble_Box");
 	var content = myIFrame.contentWindow.document.body.innerHTML;
-	console.log(content);
     var link = document.createElement("a");
-    link.download = "helloWorld.doc"
+    link.download = file +".doc"
     link.href = "data:," + content;
 	link.click();
-	//downloadURI("data:," + content, "helloWorld.doc");
 }
+
+
+	const textList = document.querySelector('#text-list');
+	function renderChat(doc){
+		let li = document.createElement('li');
+		let text = document.createElement('span');
+
+		li.setAttribute('data-id', doc.id);
+		text.textContent = doc.data().FileName;
+
+		li.appendChild(text);
+		textList.appendChild(li);
+
+	}
+	document.getElementById("saveButton").addEventListener("click", function(e){
+		e.preventDefault();
+		var myIFrame = document.getElementById("Scribble_Box");
+		var content = myIFrame.contentWindow.document.body.innerHTML;
+		var file = prompt("Please enter file name", '');
+		const fileName = document.querySelector(file);
+		db.collection('TextFile').add({
+			FileName: file + ".doc",
+			Text: content
+
+		});
+	});
+	document.getElementById("uploadButton").addEventListener("click", function(e){
+		e.preventDefault();
+		var name = prompt("Please enter file name", '');
+		db.collection("TextFile").where("FileName", "==", name).onSnapshot(function(Snapshot) {
+			var myIFrame = document.getElementById("Scribble_Box");
+			var iframeDoc = myIFrame.contentWindow.document;
+			Snapshot.forEach(function(doc) {
+				iframeDoc.open();
+				iframeDoc.write(doc.data().Text);
+				iframeDoc.close();
+			});
+    	});
+
+	});
+
+	db.collection('TextFile').onSnapshot(function(snapshot){
+		let changes = snapshot.docChanges();
+		changes.forEach(function(change) {
+			if(change.type == 'added'){
+				renderChat(change.doc);
+			}
+			else if (change.type == 'removed'){
+				let li = textList.querySelector('[data-id=' + change.doc.id + ']');
+				textList.removeChild(li);
+			}
+		})
+	})
