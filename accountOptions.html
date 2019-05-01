@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Account Options</title>
+	<link rel="stylesheet" href="css/mainStyle.css">
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+</head>
+<body>
+	<div class="pageBanner">
+		<span id="pageBannerTitle">Scribel</span>
+		<a href="javascript: window.close()">
+			<input type="image" src="images/exit.png" class="btn" id="logOUT" title="Logout"></input>
+		</a>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="home.html">Home</a>
+		<a href="classSearch.html">Class Search</a>
+		<a href="accountOptions.html">Account Options</a>
+		<a href="about.html">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="adaptMenu()">
+			<img src="images/hamburger.png">
+		</a>
+	</div>
+	<div>
+		<form>
+			First name:<br>
+			<input type="text" name="firstname"><br>
+			Last name:<br>
+			<input type="text" name="lastname"><br>
+			Email:<br>
+			display email here<br>
+			Password:<br>
+			<input type="text" name="password"><br>
+			Confirm Password:<br>
+			<input type="text" name="password2"><br>
+			Memory Used:<br>
+			total memory used here/2.0 GB or whatever<br>
+			<br>
+			<input type="submit" value="Submit">
+		</form>
+
+	</div>
+	
+</body>
+<footer>
+	<script src="scripts/config.js"></script>
+	<script src="scripts/checkLogin.js"></script>
+	<script src="scripts/jsStuff.js"></script>
+</footer>
+</html>

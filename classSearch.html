@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Class Search</title>
+	<link rel="stylesheet" href="css/mainStyle.css">
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+</head>
+<body>
+	<div class="pageBanner">
+		<span id="pageBannerTitle">Scribel</span>
+		<a href="javascript: window.close()">
+			<input type="image" src="images/exit.png" class="btn" id="logOUT" title="Logout"></input>
+		</a>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="home.html">Home</a>
+		<a class="active" href="classSearch.html">Class Search</a>
+		<a href="accountOptions.html">Account Options</a>
+		<a href="about.html">About</a>
+		<a href="javascript:void(0);" class="icon" onclick="adaptMenu()">
+			<img src="images/hamburger.png">
+		</a>
+	</div>
+	<form id="searchForm">
+		<input type="text" id="myInputClass" placeholder="Class Name">
+		<input type="text" id="myInputNumber" placeholder="Class Number">
+		<button>Search</button>
+	</form>
+
+	<ul id="myUL"> <!--- This is where code should go to search through all the possible classes, NOT hard coded--->
+	  <!--<li><a href="#">Adele</a></li> onkeyup="searchBarSearch()"
+	  <li><a href="#">Agnes</a></li>
+
+	  <li><a href="#">Billy</a></li>
+	  <li><a href="#">Bob</a></li>
+
+	  <li><a href="#">Calvin</a></li>
+	  <li><a href="#">Christina</a></li>
+	  <li><a href="#">Cindy</a></li> -->
+	</ul> 
+	<script src="scripts/config.js"></script>
+	<script src="scripts/checkLogin.js"></script>
+	<script src="scripts/jsStuff.js"></script>
+	
+</body>
+<footer>
+</footer>
+</html>

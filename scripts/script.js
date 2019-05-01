@@ -1,3 +1,5 @@
+
+
 function iFrameOn(){
     Scribble_Box.document.designMode = 'On';
     Scribble_Box.document.body.style.wordWrap = 'break-word';
@@ -98,55 +100,77 @@ function downloadURI() {
 	link.click();
 }
 
+function fillField(){
+	var URL = window.location.search
+	var fill = URL.replace('?TextFile=','');
+	console.log(fill);
 
-	const textList = document.querySelector('#text-list');
-	function renderChat(doc){
-		let li = document.createElement('li');
-		let text = document.createElement('span');
-
-		li.setAttribute('data-id', doc.id);
-		text.textContent = doc.data().FileName;
-
-		li.appendChild(text);
-		textList.appendChild(li);
-
-	}
-	document.getElementById("saveButton").addEventListener("click", function(e){
-		e.preventDefault();
+	db.collection("TextFile").where("FileName", "==", fill).onSnapshot(function(Snapshot) {
 		var myIFrame = document.getElementById("Scribble_Box");
-		var content = myIFrame.contentWindow.document.body.innerHTML;
-		var file = prompt("Please enter file name", '');
-		const fileName = document.querySelector(file);
-		db.collection('TextFile').add({
-			FileName: file + ".doc",
-			Text: content
-
+		var iframeDoc = myIFrame.contentWindow.document;
+		Snapshot.forEach(function(doc) {
+			iframeDoc.open();
+			iframeDoc.write(doc.data().Text);
+			iframeDoc.close();
 		});
 	});
-	document.getElementById("uploadButton").addEventListener("click", function(e){
-		e.preventDefault();
-		var name = prompt("Please enter file name", '');
-		db.collection("TextFile").where("FileName", "==", name).onSnapshot(function(Snapshot) {
-			var myIFrame = document.getElementById("Scribble_Box");
-			var iframeDoc = myIFrame.contentWindow.document;
-			Snapshot.forEach(function(doc) {
-				iframeDoc.open();
-				iframeDoc.write(doc.data().Text);
-				iframeDoc.close();
-			});
-    	});
+}
+
+
+const textList = document.querySelector('#text-list');
+function renderChat(doc){
+	let li = document.createElement('li');
+	let text = document.createElement('span');
+
+	li.setAttribute('data-id', doc.id);
+	text.textContent = doc.data().FileName;
+
+	li.appendChild(text);
+	textList.appendChild(li);
+
+}
+document.getElementById("saveButton").addEventListener("click", function(e){
+	e.preventDefault();
+	var myIFrame = document.getElementById("Scribble_Box");
+	var content = myIFrame.contentWindow.document.body.innerHTML;
+	var className = document.getElementById('className').value.toUpperCase();
+	var classNumber = document.getElementById('classNumber').value
+	var file = document.getElementById('fileName').value
+	db.collection('TextFile').add({
+		FileName: file + ".doc",
+		Text: content,
+		Class: className + classNumber
 
 	});
+});
+/*document.getElementById("uploadButton").addEventListener("click", function(e){
+	e.preventDefault();
+	var name = prompt("Please enter file name", '');
+	db.collection("TextFile").where("FileName", "==", name).onSnapshot(function(Snapshot) {
+		var myIFrame = document.getElementById("Scribble_Box");
+		var iframeDoc = myIFrame.contentWindow.document;
+		Snapshot.forEach(function(doc) {
+			iframeDoc.open();
+			iframeDoc.write(doc.data().Text);
+			iframeDoc.close();
+		});
+	});
 
-	db.collection('TextFile').onSnapshot(function(snapshot){
-		let changes = snapshot.docChanges();
-		changes.forEach(function(change) {
-			if(change.type == 'added'){
-				renderChat(change.doc);
-			}
-			else if (change.type == 'removed'){
-				let li = textList.querySelector('[data-id=' + change.doc.id + ']');
-				textList.removeChild(li);
-			}
-		})
+});*/
+
+db.collection('TextFile').onSnapshot(function(snapshot){
+	let changes = snapshot.docChanges();
+	changes.forEach(function(change) {
+		if(change.type == 'added'){
+			renderChat(change.doc);
+		}
+		else if (change.type == 'removed'){
+			let li = textList.querySelector('[data-id=' + change.doc.id + ']');
+			textList.removeChild(li);
+		}
 	})
+});
+
+window.onbeforeunload = function () {
+	return "Data will be lost if you leave the page, are you sure?";
+};

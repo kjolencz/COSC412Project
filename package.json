@@ -4,7 +4,8 @@
   "description": "Text-Editor",
   "main": "script.js",
   "dependencies": {
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "scripts": {

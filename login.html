@@ -12,13 +12,13 @@
 
 
 <body id="body">
-  <div class="container-fluid" id="logIN">
+  <div class="container-fluid" id="logIN" >
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center" style="color:white">
           <div id="loginTitle">
               <strong class="navbar-brand">Login</strong>
           </div>
         </nav>
-    <form id="login-form">
+    <form id="login-form" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -41,7 +41,7 @@
               <strong class="navbar-brand">Sign up</strong>
           </div>
         </nav>
-    <form id="signup-form">
+    <form id="signup-form" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="signup-email" aria-describedby="emailHelp" placeholder="Enter email" required>
@@ -49,87 +49,29 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="signup-password" placeholder="Password" required>
+          <input type="password" class="form-control" id="signup-password" onkeyup="checkPassword()" placeholder="Password" required>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="signup-passwordCheck" placeholder="Re-type Password">
+            <input type="password" class="form-control" id="signup-passwordCheck" onkeyup="checkPassword()" placeholder="Re-type Password">
           </div>
         <div class="form-group">
             <label for="exampleUsername">UserName</label>
             <input type="textbox" class="form-control" id="userName" placeholder="Username" required>
           </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="myBtn" class="btn btn-primary">Submit</button>
     </form>
- <!-- <div>
-        <button type="button" id="logout">Logout</button>
-    </div> 
-  <div class="row">
-        <form id="signup-form">
-          <div class="row"> 
-            <div class="col-4">
-              Email
-            </div>
-            <div class="col-8">
-                <input type="email" id="signup-email" required />
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              Password
-            </div>
-            <div class="col-8">
-              <input type="password" id="signup-password" required />
-            </div>
-            <div class="row">
-              <div class="col align-self-center">
-                  <button>Sign up</button>
-              </div>
-            </div>
-          </div>
-        </form>
-    </div>
-
-    <div>
-        <form id="login-form">
-            <input type="email" id="login-email" required />
-            <label for="login-email">Email address</label>
-            <input type="password" id="login-password" required />
-            <label for="login-password">Your password</label>
-            <button>Login</button>
-        </form>
-    </div>  -->
       <p class="text-muted small mb-4 mb-lg-0">
         &copy; Scribel 2019. All Rights Reserved.
       </p>
   </div>
   
-      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDRShMLXuW2Nmfkk3i3zippbwE08bfUmJI",
-            authDomain: "legend-firbase-tut.firebaseapp.com",
-            databaseURL: "https://legend-firbase-tut.firebaseio.com",
-            projectId: "legend-firbase-tut",
-            storageBucket: "legend-firbase-tut.appspot.com",
-            messagingSenderId: "852797595665"
-          };
-        firebase.initializeApp(config);
 
-        //authentication method
-        const auth = firebase.auth();
-
-        //database method
-        const db = firebase.firestore();
-
-      </script>
-
-      
-  <!-- Compiled and minified JavaScript -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>    
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/config.js"></script>
   <script src="scripts/auth.js"></script>
   <script src="scripts/index.js"></script>
   <!--<script src="scripts/functions.js"></script> -->

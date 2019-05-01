@@ -7,9 +7,9 @@ auth.onAuthStateChanged(user => {
     //if user is logged in, do x
     if (user){
         console.log('User logged in: ',user, user.displayName);
+
     }
     //if user is logged out, do y.
-    //if logged out, user == null.
     else {
         console.log('User logged out.');
     }
@@ -24,7 +24,6 @@ auth.onAuthStateChanged(user => {
 //a promise means that the auth server tells the program an event will eventually happen.
 //when the event happens, .then fires.
 //Lets us query events for the CSS without it going off prematurely.
-
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -50,19 +49,16 @@ signupForm.addEventListener('submit', function(e) {
               }, function(error) {
                 if(error){
                     console.log(error);
+                    }
+                });     
             }
-        });     
+        });
+        window.setTimeout(function(){
 
-    }
-});
+            // Move to a new location or you can do something else
+            window.location.href = "loading.html";
 
-        //Closes pop-up after signup is complete
-        //const modal = document.querySelector('#modal-signup');
-        //M.Modal.getInstance(modal).close();
-
-        //Resets form
-        signupForm.reset();
-        location.reload();
+        }, 1000);
     });
 });
 
@@ -76,12 +72,18 @@ login.addEventListener('submit', function(e) {
     const password = login['login-password'].value;
 
     //actual sign-in method
-    auth.signInWithEmailAndPassword(email,password).then(cred => {
-
-        //Resets form
-        login.reset();
+    auth.signInWithEmailAndPassword(email,password).then(function(cred) {
+            window.setTimeout(function(){
+        
+            // Move to a new location or you can do something else
+            window.location.href = "loading.html";
+                //Resets form
+                //login.reset();
+            
+            }, 1000);
     });
-})
+
+});
 
 //Logout
 
@@ -93,3 +95,17 @@ logout.addEventListener('click', (e) => {
 
 
 })
+
+function checkPassword(){
+    var passOne = document.getElementById('signup-password').value;
+    var passTwo = document.getElementById('signup-passwordCheck').value;
+    if(passOne != passTwo){
+        document.getElementById("signup-passwordCheck").style.borderColor = "red";
+        document.getElementById("myBtn").disabled = true;
+        
+    }
+    else{
+        document.getElementById("signup-passwordCheck").style.borderColor = "#d9d9d9";
+        document.getElementById("myBtn").disabled = false;
+    }
+}
