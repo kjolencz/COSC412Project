@@ -84,11 +84,6 @@ function changeImage(){
 		document.getElementById('imagePlace').value = "";
 	}
 }
-/*function submit_form(){
-	var theForm = document.getElementById("myform");
-	theForm.elements["myTextArea"].value = window.frames['Scribble_Box'].document.body.innerHTML;
-	theForm.submit();
-}*/
 
 function downloadURI() {
 	var file = prompt("Please enter file name", '');
@@ -114,20 +109,6 @@ function fillField(){
 			iframeDoc.close();
 		});
 	});
-}
-
-
-const textList = document.querySelector('#text-list');
-function renderChat(doc){
-	let li = document.createElement('li');
-	let text = document.createElement('span');
-
-	li.setAttribute('data-id', doc.id);
-	text.textContent = doc.data().FileName;
-
-	li.appendChild(text);
-	textList.appendChild(li);
-
 }
 document.getElementById("saveButton").addEventListener("click", function(e){
 	e.preventDefault();
@@ -158,18 +139,9 @@ document.getElementById("saveButton").addEventListener("click", function(e){
 
 });*/
 
-db.collection('TextFile').onSnapshot(function(snapshot){
-	let changes = snapshot.docChanges();
-	changes.forEach(function(change) {
-		if(change.type == 'added'){
-			renderChat(change.doc);
-		}
-		else if (change.type == 'removed'){
-			let li = textList.querySelector('[data-id=' + change.doc.id + ']');
-			textList.removeChild(li);
-		}
-	})
-});
+function newFile(){
+	window.location.href = "textEditor.html";
+}
 
 window.onbeforeunload = function () {
 	return "Data will be lost if you leave the page, are you sure?";

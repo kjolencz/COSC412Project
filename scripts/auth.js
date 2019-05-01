@@ -33,7 +33,7 @@ signupForm.addEventListener('submit', function(e) {
   const password = signupForm['signup-password'].value;
 
     //actual account creation
-    auth.createUserWithEmailAndPassword(email,password).then(cred =>{
+    auth.createUserWithEmailAndPassword(email,password).then(function(cred) {
         const userName = signupForm['userName'].value;
         firebase.auth().onAuthStateChanged(function(user) {
             var user = firebase.auth().currentUser;
@@ -52,13 +52,19 @@ signupForm.addEventListener('submit', function(e) {
                     }
                 });     
             }
-        });
+        })
         window.setTimeout(function(){
 
             // Move to a new location or you can do something else
             window.location.href = "loading.html";
 
         }, 1000);
+    }).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = errorCode.replace('auth/','');
+        document.getElementById("errorSignUP").style.color = "red";
+        document.getElementById('errorSignUP').innerHTML = errorMessage;
+        console.log(errorMessage);
     });
 });
 
@@ -72,29 +78,25 @@ login.addEventListener('submit', function(e) {
     const password = login['login-password'].value;
 
     //actual sign-in method
-    auth.signInWithEmailAndPassword(email,password).then(function(cred) {
-            window.setTimeout(function(){
-        
-            // Move to a new location or you can do something else
-            window.location.href = "loading.html";
-                //Resets form
-                //login.reset();
-            
-            }, 1000);
+    auth.signInWithEmailAndPassword(email,password).then(function(cred){
+
+        window.setTimeout(function(){
+
+        // Move to a new location or you can do something else
+        window.location.href = "loading.html";
+            //Resets form
+            //login.reset();
+
+        }, 1000);
+    }).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = errorCode.replace('auth/','');
+        document.getElementById("errorLogin").style.color = "red";
+        document.getElementById('errorLogin').innerHTML = errorMessage;
+        console.log(errorMessage);
     });
 
 });
-
-//Logout
-
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e) => {
-
-    e.preventDefault();
-    auth.signOut();
-
-
-})
 
 function checkPassword(){
     var passOne = document.getElementById('signup-password').value;

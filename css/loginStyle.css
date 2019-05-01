@@ -1,13 +1,13 @@
 #body{
-    background-color: #bad3fc;
+    background-color: #535760;
 }
 
 #signUP{
     margin:auto;
     float:right;
     margin-right:5%;
-    height:520px;
-    margin-top: 50px;
+    height:550px;
+    margin-top: 40px;
     width: 40%;
     background-color: white;
     border-radius: 25px;
@@ -25,8 +25,8 @@
 #logIn{
     margin:auto;
     float:left;
-    height:520px;
-    margin-top: 50px;
+    height:320px;
+    margin-top: 40px;
     width: 40%;
     background-color: white;
     margin-left:5%;

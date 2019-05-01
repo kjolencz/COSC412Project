@@ -21,6 +21,9 @@
                         cursor: pointer;">Save</button></div>
                     <div class="col"> <input type="button" onclick="downloadURI()" style="color:white;  background-color: Transparent;border:none;
                         cursor: pointer;" value="Download"></div>
+                    <div class="col"> <input type="button" onclick="newFile()" style="color:white;  background-color: Transparent;border:none;
+                        cursor: pointer;" value="New">
+                    </div>
                 </div>
             </div>
             <div id="main" class="container-fluid">
@@ -240,10 +243,8 @@
             <!-- End replacing your normal textarea -->
         </div>
         <p></p>
-        <div>
-            <ul style="list-style: none; line-height: 50px;" id="text-list"></ul>        
-        </div>
         <script src="scripts/config.js"></script>
+        <script src="scripts/checkLogin.js"></script>
         <script src="scripts/script.js"></script>
             <!--<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/> -->
     </body>

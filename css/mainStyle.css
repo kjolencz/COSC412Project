@@ -9,20 +9,20 @@ body {
 }
 .btn {
 	max-width: 100%;
-  height: 50px;
+  height: 40px;
   float:right;
 }
 
 .pageBanner {
-	background-color: #181818;
+  background-color: #181818;
   margin:auto;
-  height:50px;
+  height:70px;
 }
 #pageBannerTitle{
 	color: white;
 	text-align: center;
 	display: inline-block;
-  width: 90%;
+  width: 80%;
   font-size: 2.5em;
 }
 .pageBanner button{
@@ -116,7 +116,7 @@ body {
 #myUL li a {
   border: 1px solid #ddd; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
+  background-color: #c2c0c6; /* Grey background color */
   padding: 12px; /* Add some padding */
   text-decoration: none; /* Remove default text underline */
   font-size: 18px; /* Increase the font-size */
