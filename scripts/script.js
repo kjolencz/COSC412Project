@@ -1,5 +1,4 @@
 
-
 function iFrameOn(){
     Scribble_Box.document.designMode = 'On';
     Scribble_Box.document.body.style.wordWrap = 'break-word';

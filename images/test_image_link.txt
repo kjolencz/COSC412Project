@@ -1,2 +1,3 @@
-http://31.media.tumblr.com/fca646cd8fe87906e605ad7e8d039903/tumblr_mmoz4fWT6U1soh1p8o1_500.png
-../images/flower.jpeg
+http://31.media.tumblr.com/fca646cd8fe87906e605ad7e8d039903/tumblr_mmoz4fWT6U1soh1p8o1_500.png      //rabbits
+https://amp.businessinsider.com/images/5aeb157419ee8620008b4814-750-563.jpg                         //Self pic
+../images/flower.jpeg   
