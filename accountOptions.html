@@ -4,9 +4,15 @@
 <head>
 	<title>Account Options</title>
 	<link rel="stylesheet" href="css/mainStyle.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="pageBanner">
@@ -20,35 +26,98 @@
 		<a href="home.html">Home</a>
 		<a href="classSearch.html">Class Search</a>
 		<a href="accountOptions.html">Account Options</a>
-		<a href="about.html">About</a>
+		<a href="about.html">Text Editor</a>
 		<a href="javascript:void(0);" class="icon" onclick="adaptMenu()">
 			<img src="images/hamburger.png">
 		</a>
 	</div>
-	<div>
-		<form>
-			First name:<br>
-			<input type="text" name="firstname"><br>
-			Last name:<br>
-			<input type="text" name="lastname"><br>
-			Email:<br>
-			display email here<br>
-			Password:<br>
-			<input type="text" name="password"><br>
-			Confirm Password:<br>
-			<input type="text" name="password2"><br>
-			Memory Used:<br>
-			total memory used here/2.0 GB or whatever<br>
-			<br>
-			<input type="submit" value="Submit">
-		</form>
+	<div id="divContent">
+		<div id="contentCenter">
+			<div class="row-12" style="float:left;width:8%">
+				<div class="col">
+					<img src="images/edit.png" style="height:40px;" id="editButton"  title="Edit Account" onclick="editPage()" />
+				</div>
+			</div>
+			<div class="row-10" style="float:left; width:60%">
+				<div class="col"> 
+					<form id="editAccount" method="POST">
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="inputEmail4">First Name</label>
+								<input type="text" class="form-control" id="firstName" placeholder="First Name">
+							</div>
+							<div class="form-group col-md-6">
+								<label for="inputPassword4">Last Name</label>
+								<input type="text" class="form-control" id="lastName" placeholder="Last Name">
+							</div>
+						</div>
+						<div class="form-row">
+								<div class="form-group col-md-6">
+										<label for="staticEmail" class="col-sm-2 col-form-label" style="margin-left:-15px;">Email</label>
+										<input type="email" readonly class="form-control-plaintext" id="staticEmail" value="">
+								</div>
+								<div class="form-group col-md-6">
+										<label for="inputPassword" style="margin-left:-15px;" class="col-sm-2 col-form-label">Password</label>
+										<input type="password" readonly class="form-control-plaintext" id="inputPassword">
+								</div>
+							</div>
+						<div class="form-row">
+							<div class="form-group col">
+								<label for="inputPassword" class="col-sm-2 col-form-label">UserName</label>
+								<input type="text" class="form-control" id="inputUserName" placeholder="User Name">
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col">
+								<label for="inputPassword" class="col-sm-4 col-form-label">Image URL</label>
+								<input type="text" class="form-control" id="URLImage" placeholder="Image URL">
+							</div>
+						</div>
+						<button type="submit" id="saveChanges" class="btn btn-primary">Save Changes</button>
+					</form>
+				</div>
+				<button type="button" class="btn btn-secondary" id="cancelChanges" style="margin-right:10px;" onclick="cancel()">Cancel</button>
+				</div>
+				<div class="row-10" style="float:left; width:25%;">
+					<div class="col">
+						<img src="images/Scrible.png" id="imageChange" style="height: 250px; width:300px; border: 2px solid black;">
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
-	
-</body>
-<footer>
 	<script src="scripts/config.js"></script>
 	<script src="scripts/checkLogin.js"></script>
 	<script src="scripts/jsStuff.js"></script>
-</footer>
+	<script src="scripts/accountOptions.js"></script>
+</body>
+<footer>
+	<footer class="footer bg-light">
+		<div class="container">
+			<div class="row">
+			<div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+				<ul class="list-inline mb-2">
+				<li class="list-inline-item">
+					<a href="Page.html">About</a>
+				</li>
+				<li class="list-inline-item">&sdot;</li>
+				<li class="list-inline-item">
+					<a href="#">Contact</a>
+				</li>
+				<li class="list-inline-item">&sdot;</li>
+				<li class="list-inline-item">
+					<a href="#">Terms of Use</a>
+				</li>
+				<li class="list-inline-item">&sdot;</li>
+				
+				</ul>
+				<p class="text-muted small mb-4 mb-lg-0">
+				&copy; Scribel 2019. All Rights Reserved.
+				</p>
+			</div>
+			
+			</div>
+		</div>
+	</footer>
 </html>

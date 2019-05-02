@@ -3,6 +3,8 @@
     <head>
         <title>Text</title>
         <link rel="stylesheet" type="text/css" href="css/textEditor.css" />
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
         <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
 	    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-firestore.js"></script>
@@ -193,7 +195,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--<input type="button" onClick="iForeColor()" value="Text Color"> -->
                         </div>
                     </div>
 
@@ -237,15 +238,13 @@
             
         <div class="row justify-content-center" id="textBox">
             <!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it 
-            <textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea> -->
             <textarea style="display:none;" name="myTextArea" id="myTextArea" style="width:800px; height:800px;"></textarea>
             <iframe  name="Scribble_Box" id="Scribble_Box" style="width:800px; height:800px; border: none;"></iframe>
-            <!-- End replacing your normal textarea -->
+            End replacing your normal textarea -->
         </div>
         <p></p>
         <script src="scripts/config.js"></script>
         <script src="scripts/checkLogin.js"></script>
         <script src="scripts/script.js"></script>
-            <!--<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/> -->
     </body>
 </html>

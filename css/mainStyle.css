@@ -12,18 +12,35 @@ body {
   height: 40px;
   float:right;
 }
+#welcomeUser{
+  float:left;
+  color:white;
+  margin:auto;
+  font-size: 1.5em;
 
+}
 .pageBanner {
   background-color: #181818;
   margin:auto;
   height:70px;
+}
+#divContent{
+  height:455px; 
+  background-color:#535760;
+  padding:10px;
+}
+#contentCenter{
+  height:440px;
+  padding:10px;
+  background-color: #c2c0c6 ; 
 }
 #pageBannerTitle{
 	color: white;
 	text-align: center;
 	display: inline-block;
   width: 80%;
-  font-size: 2.5em;
+  font-size: 3em;
+  font-family: "French Script MT";
 }
 .pageBanner button{
 	background-color: #181818;
@@ -116,13 +133,14 @@ body {
 #myUL li a {
   border: 1px solid #ddd; /* Add a border to all links */
   margin-top: -1px; /* Prevent double borders */
-  background-color: #c2c0c6; /* Grey background color */
+  background-color: #535760; /* Grey background color */
   padding: 12px; /* Add some padding */
   text-decoration: none; /* Remove default text underline */
   font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
+  color: white; /* Add a black text color */
   display: block; /* Make it into a block element to fill the whole list */
 }
 #myUL li a:hover:not(.header) {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
+  background-color: #eee;
+  color:black; /* Add a hover effect to all links, except for headers */
 }

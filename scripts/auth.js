@@ -6,46 +6,41 @@ auth.onAuthStateChanged(user => {
     
     //if user is logged in, do x
     if (user){
-        console.log('User logged in: ',user, user.displayName);
+        
 
     }
     //if user is logged out, do y.
     else {
-        console.log('User logged out.');
+       
     }
 });
 
-
-
-
-//Authentication for sign-up
-
-//.then refers to a type of event called a promise
-//a promise means that the auth server tells the program an event will eventually happen.
-//when the event happens, .then fires.
-//Lets us query events for the CSS without it going off prematurely.
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', function(e) {
   e.preventDefault();
   
-  // get user info
+
   const email = signupForm['signup-email'].value;
   const password = signupForm['signup-password'].value;
 
-    //actual account creation
+
     auth.createUserWithEmailAndPassword(email,password).then(function(cred) {
         const userName = signupForm['userName'].value;
         firebase.auth().onAuthStateChanged(function(user) {
             var user = firebase.auth().currentUser;
             if (user) {
 
-               // Updates the user attributes:
+                db.collection('Name').doc(cred.user.uid).set({
+                    FirstName: null,
+                    LastName: null,
+                    
+                });
+
               user.updateProfile({ 
                 displayName: userName,
 
               }).then(function() {
-                var name = user.displayName;
-                console.log(name)
+                window.location.href = "loading.html";
               }, function(error) {
                 if(error){
                     console.log(error);
@@ -53,12 +48,6 @@ signupForm.addEventListener('submit', function(e) {
                 });     
             }
         })
-        window.setTimeout(function(){
-
-            // Move to a new location or you can do something else
-            window.location.href = "loading.html";
-
-        }, 1000);
     }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = errorCode.replace('auth/','');
@@ -78,16 +67,10 @@ login.addEventListener('submit', function(e) {
     const password = login['login-password'].value;
 
     //actual sign-in method
-    auth.signInWithEmailAndPassword(email,password).then(function(cred){
+    auth.signInWithEmailAndPassword(email,password).then(function(){
 
-        window.setTimeout(function(){
-
-        // Move to a new location or you can do something else
+    }).then(function(){
         window.location.href = "loading.html";
-            //Resets form
-            //login.reset();
-
-        }, 1000);
     }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = errorCode.replace('auth/','');
@@ -110,4 +93,10 @@ function checkPassword(){
         document.getElementById("signup-passwordCheck").style.borderColor = "#d9d9d9";
         document.getElementById("myBtn").disabled = false;
     }
+}
+
+function signUpEmail(){
+    console.log(localStorage.getItem('email'));
+    document.getElementById("signup-email").value = localStorage.getItem('email');
+    localStorage.clear();
 }

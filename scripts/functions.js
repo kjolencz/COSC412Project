@@ -1,10 +1,9 @@
-function signUp(){
-    var email = document.getElementById('#emailValue').value;
-    localStorage.setItem('email', email);
-    console.log("here");
-}
+var form = document.getElementById("signUP");
 
-function signUpEmail(){
-    document.getElementById("#signup-email").innerHTML = localStorage.getItem('email');
-    localStorage.clear();
-}
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('emailValue').value;
+    localStorage.setItem('email', email);
+    window.location.href="login.html";
+});
+

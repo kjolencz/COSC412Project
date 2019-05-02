@@ -11,6 +11,9 @@
 
     <title>Landing Page - Start Bootstrap Theme</title>
 
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -38,28 +41,6 @@
         <div class="container-fluid" style="width: 100%;">
           <div class="navbar-brand">Scribel</div>
           <div class="row" style="width:60%;">
-            <div class="col-5">
-              <input
-                type="email"
-                class="form-control"
-                id="login-email"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                required
-              />
-            </div>
-            <div class="col-5">
-              <input
-                type="password"
-                class="form-control"
-                id="login-password"
-                placeholder="Password"
-                required
-              />
-            </div>
-            <div class="col">
-              <button type="submit" class="btn btn-primary">Login</button>
-            </div>
           </div>
         </div>
       </nav>
@@ -70,20 +51,15 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">
+            <h1 class="mb-5" style="color:black">
               Create and Share Notes With Anyone Anywhere!
             </h1>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <form action="login.html" method="get" onsubmit="return signUp()">
+            <form id="signUP" method="get">
               <div class="form-row">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
-                  <input
-                    type="email"
-                    class="form-control form-control-lg"
-                    placeholder="Enter your email..."
-                    id="emailValue"
-                  />
+                  <input type="email" class="form-control form-control-lg" placeholder="Enter your email..." id="emailValue"/>
                 </div>
                 <div class="col-12 col-md-3">
                   <button
@@ -107,7 +83,7 @@
           <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
             <ul class="list-inline mb-2">
               <li class="list-inline-item">
-                <a href="#">About</a>
+                <a href="Page.html">About</a>
               </li>
               <li class="list-inline-item">&sdot;</li>
               <li class="list-inline-item">
@@ -152,26 +128,10 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyDRShMLXuW2Nmfkk3i3zippbwE08bfUmJI",
-        authDomain: "legend-firbase-tut.firebaseapp.com",
-        databaseURL: "https://legend-firbase-tut.firebaseio.com",
-        projectId: "legend-firbase-tut",
-        storageBucket: "legend-firbase-tut.appspot.com",
-        messagingSenderId: "852797595665"
-      };
-      firebase.initializeApp(config);
-
-      //authentication method
-      const auth = firebase.auth();
-
-      //database method
-      const db = firebase.firestore();
     </script>
 
     <!-- Compiled and minified JavaScript -->
+    <script src="scripts/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

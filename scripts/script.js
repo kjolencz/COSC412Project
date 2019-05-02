@@ -124,20 +124,6 @@ document.getElementById("saveButton").addEventListener("click", function(e){
 
 	});
 });
-/*document.getElementById("uploadButton").addEventListener("click", function(e){
-	e.preventDefault();
-	var name = prompt("Please enter file name", '');
-	db.collection("TextFile").where("FileName", "==", name).onSnapshot(function(Snapshot) {
-		var myIFrame = document.getElementById("Scribble_Box");
-		var iframeDoc = myIFrame.contentWindow.document;
-		Snapshot.forEach(function(doc) {
-			iframeDoc.open();
-			iframeDoc.write(doc.data().Text);
-			iframeDoc.close();
-		});
-	});
-
-});*/
 
 function newFile(){
 	window.location.href = "textEditor.html";
